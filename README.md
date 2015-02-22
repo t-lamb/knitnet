@@ -1,4 +1,4 @@
-## Create Rour Own RESTful API with Node.js, MongoDb, Express.js, Heroku Boilerplate
+## Create Your Own RESTful API with Node.js, MongoDb, Express.js, Heroku Boilerplate
 
 This is boilerplate code for setting up a simple node.js RESTful API app using: the express.js framework, a MongoDb database (with the help of Mongoose), and hosting it on Heroku. Please refer to the following documentation for each of these components:
 
