@@ -9,7 +9,7 @@
 var geocoder = require('geocoder');
 
 // our db model
-var Person = require("../models/model.js");
+var Pattern = require("../models/model.js");
 
 /**
  * GET '/'
@@ -34,8 +34,8 @@ exports.index = function(req, res) {
 
 /**
  * POST '/api/create'
- * Receives a POST request of the new user and location, saves to db, responds back
- * @param  {Object} req. An object containing the different attributes of the Person
+ * Receives a POST request of the new pattern, saves to db, responds back
+ * @param  {Object} req. An object containing the different attributes of the Pattern
  * @return {Object} JSON
  */
 
@@ -44,58 +44,38 @@ exports.create = function(req,res){
 	console.log(req.body);
 
 	// pull out the name and location
-	var name = req.body.name;
-	var location = req.body.location;
+	var needleSize = req.body.needleSize;
+	var yarnSize = req.body.yarnSize;
+	var color = req.body.color;
 
-	//now, geocode that location
-	geocoder.geocode(location, function ( err, data ) {
-
-		console.log(data);
-  	
-  	// if we get an error, or don't have any results, respond back with error
-  	if (err || data.status == 'ZERO_RESULTS'){
-  		var jsonData = {status:'ERROR', message: 'Error finding location'};
-  		res.json(jsonData);
-  	}
-
-  	// otherwise, save the user
-
-	  var locationName = data.results[0].formatted_address; // the location name
-	  var lon = data.results[0].geometry.location.lng;
-		var lat = data.results[0].geometry.location.lat;
-  	
-  	// need to put the geo co-ordinates in a lng-lat array for saving
-  	var lnglat_array = [lon,lat];
-
-	  var person = Person({
-	  	name: name,
-	  	locationName: locationName,
-	  	locationGeo: lnglat_array
+	  var Pattern = Pattern({
+	  	needleSize: needleSize,
+	  	yarnSize: yarnSize,
+	  	color: color
 	  });
 
-	  // now, save that person to the database
+	  // now, save that Pattern to the database
 		// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model-save	  
-	  person.save(function(err,data){
+	  Pattern.save(function(err,data){
 	  	// if err saving, respond back with error
 	  	if (err){
-	  		var jsonData = {status:'ERROR', message: 'Error saving person'};
+	  		var jsonData = {status:'ERROR', message: 'Error saving Pattern'};
 	  		return res.json(jsonData);
 	  	}
 
-	  	console.log('saved a new person!');
+	  	console.log('saved a new Pattern!');
 	  	console.log(data);
 
-	  	// now return the json data of the new person
+	  	// now return the json data of the new Pattern
 	  	var jsonData = {
 	  		status: 'OK',
-	  		person: data
+	  		Pattern: data
 	  	}
 
 	  	return res.json(jsonData);
 
 	  })
-
-	});		
+		
 }
 
 /**
@@ -110,18 +90,18 @@ exports.getOne = function(req,res){
 	var requestedId = req.param('id');
 
 	// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.findById
-	Person.findById(requestedId, function(err,data){
+	Pattern.findById(requestedId, function(err,data){
 
 		// if err or no user found, respond with error 
 		if(err || data == null){
-  		var jsonData = {status:'ERROR', message: 'Could not find that person'};
+  		var jsonData = {status:'ERROR', message: 'Could not find that Pattern'};
   		 return res.json(jsonData);
   	}
 
   	// otherwise respond with JSON data of the user
   	var jsonData = {
   		status: 'OK',
-  		person: data
+  		Pattern: data
   	}
 
   	return res.json(jsonData);
@@ -138,7 +118,7 @@ exports.getOne = function(req,res){
 exports.getAll = function(req,res){
 
 	// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.find
-	Person.find(function(err, data){
+	Pattern.find(function(err, data){
 		// if err or no users found, respond with error 
 		if(err || data == null){
   		var jsonData = {status:'ERROR', message: 'Could not find people'};
@@ -162,7 +142,7 @@ exports.getAll = function(req,res){
  * POST '/api/update/:id'
  * Receives a POST request with data of the user to update, updates db, responds back
  * @param  {String} req.param('id'). The userId to update
- * @param  {Object} req. An object containing the different attributes of the Person
+ * @param  {Object} req. An object containing the different attributes of the Pattern
  * @return {Object} JSON
  */
 
@@ -200,22 +180,22 @@ exports.update = function(req,res){
 	  	locationGeo: lnglat_array
 	  };
 
-	  // now, update that person
+	  // now, update that Pattern
 		// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate  
-	  Person.findByIdAndUpdate(requestedId, dataToUpdate, function(err,data){
+	  Pattern.findByIdAndUpdate(requestedId, dataToUpdate, function(err,data){
 	  	// if err saving, respond back with error
 	  	if (err){
-	  		var jsonData = {status:'ERROR', message: 'Error updating person'};
+	  		var jsonData = {status:'ERROR', message: 'Error updating Pattern'};
 	  		return res.json(jsonData);
 	  	}
 
-	  	console.log('updated the person!');
+	  	console.log('updated the Pattern!');
 	  	console.log(data);
 
-	  	// now return the json data of the new person
+	  	// now return the json data of the new Pattern
 	  	var jsonData = {
 	  		status: 'OK',
-	  		person: data
+	  		Pattern: data
 	  	}
 
 	  	return res.json(jsonData);
@@ -238,9 +218,9 @@ exports.remove = function(req,res){
 	var requestedId = req.param('id');
 
 	// Mongoose method, http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove
-	Person.findByIdAndRemove(requestedId,function(err, data){
+	Pattern.findByIdAndRemove(requestedId,function(err, data){
 		if(err || data == null){
-  		var jsonData = {status:'ERROR', message: 'Could not find that person to delete'};
+  		var jsonData = {status:'ERROR', message: 'Could not find that Pattern to delete'};
   		return res.json(jsonData);
 		}
 

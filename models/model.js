@@ -3,12 +3,12 @@ var Schema = mongoose.Schema;
 
 // See http://mongoosejs.com/docs/schematypes.html
 
-var personSchema = new Schema({
-	name: String,
-	locationGeo : { type: [Number], index: { type: '2dsphere', sparse: true } },
-	locationName : String,	
+var patternSchema = new Schema({
+	needleSize: String, // '5 millimeter'
+	yarnSize: String,
+	color: String,
 	dateAdded : { type: Date, default: Date.now },
 })
 
 // export 'Person' model so we can interact with it in other files
-module.exports = mongoose.model('Person',personSchema);
+module.exports = mongoose.model('Pattern',patternSchema);
