@@ -138,6 +138,39 @@ exports.getAll = function(req,res){
 
 }
 
+
+/**
+ * GET '/api/type/:t'
+ * Receives a GET request to get all user details
+ * @return {Object} JSON
+ */
+
+exports.getType = function(req,res){
+
+	var t = req.param('t');
+
+
+	// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.find
+	Pattern.find({type:t}, function(err, data){
+		// if err or no users found, respond with error 
+		if(err || data == null){
+  		var jsonData = {status:'ERROR', message: 'Could not find people'};
+  		return res.json(jsonData);
+  	}
+
+  	// otherwise, respond with the data	
+
+  	var jsonData = {
+  		status: 'OK',
+  		people: data
+  	}	
+
+  	res.json(jsonData);
+
+	})
+
+}
+
 /**
  * POST '/api/update/:id'
  * Receives a POST request with data of the user to update, updates db, responds back

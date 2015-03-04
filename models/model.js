@@ -8,6 +8,7 @@ var patternSchema = new Schema({
 	yarnSize: String,
 	color: String,
 	dateAdded : { type: Date, default: Date.now },
+	type: String
 })
 
 // export 'Person' model so we can interact with it in other files

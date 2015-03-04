@@ -63,45 +63,57 @@ table {
 	transition: all 0.3s;
 }
 
-/* ---------------- STYLES ---------------*/
+/* ---------------- TYPE ---------------*/
 @font-face {
 	font-family:Monoxil;
 	src: url('fonts/Monoxil_Regular.otf') format('otf');
 }
 
-.wrapper{ 
-	margin: 0 auto;
-	max-width: 960px;
-	padding: 2%;
-}
-.content {
-	margin: 0 auto;
-	width: 80%;
-}
 body {
 	font-family: 'Lato', Helvetica, Arial, sans-serif;
 	color: #242424;
 }
-header {
-	padding-top: 1rem;
-}
+
 h1 {
 	font-family: Monoxil, monospace;
 	font-size: 10vw;
 	text-align: center;
 	color: #cc33ff;
 }
+
 h2 {
 	font-family: Monoxil, monospace;
 	font-size: 1.5rem;
 	text-align: left;
 	color: #9933ff;
 }
+
+h3 {
+	font-weight: bold;
+}
+
 a {
 	color: #242424;
 }
+
 a:hover {
 	color: #0066ff;
+}
+
+.instructions{
+	text-align: left;
+	padding: 0.5rem 0;
+}
+
+/* ---------------- LAYOUT ---------------*/
+.wrapper{ 
+	margin: 0 auto;
+	max-width: 960px;
+	padding: 2%;
+}
+
+header {
+	padding-top: 1rem;
 }
 
 .new_project{
@@ -110,13 +122,8 @@ a:hover {
 }
 
 .feed {
-}
-
-.menu {
 	margin: 0 auto;
-	width: 100%;
-	padding: 0 0 2rem 0;
-	float: left;
+	width: 95%;
 }
 
 .feed_card {
@@ -128,7 +135,7 @@ a:hover {
 }
 
 .feed_card img {
-	width:100%;
+	max-width: 100%;
 }
 
 .feed_pattern_name {
@@ -140,11 +147,17 @@ a:hover {
 	color: #242424;
 }
 
+.project_content {
+	margin: 0 auto;
+	width: 60%;
+}
+
 .button {
 	padding: 1.5rem 3rem;
-	margin: 1rem;
+	margin: 1rem 0;
 	font-family: Monoxil, monospace;
 	font-size: 1.5rem;
+	text-align: center;
 }
 
 .button1 {
@@ -170,10 +183,10 @@ a:hover {
 	color: #ffffff;
 }
 
-.instructions{
-	text-align: left;
-	padding: 0.5rem 0;
+.butts {
+text-align: center;
 }
+
 
 /* ---------------- Media Queries ---------------*/
 
@@ -183,13 +196,16 @@ a:hover {
 	}
 }
 @media screen and (max-width: 600px){
-	.content{
-		width:90%;
+	.project_content {
+		width: 90%;
+		margin: 0 auto;
 	}
-
 	.button {
 		font-size: 1.25rem;
-		padding: 1.5rem 2rem;
+		padding: 1.5rem 1rem;
+	}
+	.button2 {
+		width:90%;
 	}
 }
 
