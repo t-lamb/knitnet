@@ -24,7 +24,7 @@ exports.index = function(req, res) {
 
 	var data = {
 		status: 'OK',
-		message: 'Welcome to the itpeeps-map v1 API'
+		message: 'Welcome to theKnit v1 API'
 	}
 
 	// respond back with the data
@@ -48,7 +48,7 @@ exports.create = function(req,res){
 	var yarnSize = req.body.yarnSize;
 	var color = req.body.color;
 
-	  var Pattern = Pattern({
+	 var pattern = Pattern({
 	  	needleSize: needleSize,
 	  	yarnSize: yarnSize,
 	  	color: color
@@ -56,7 +56,7 @@ exports.create = function(req,res){
 
 	  // now, save that Pattern to the database
 		// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model-save	  
-	  Pattern.save(function(err,data){
+	  pattern.save(function(err,data){
 	  	// if err saving, respond back with error
 	  	if (err){
 	  		var jsonData = {status:'ERROR', message: 'Error saving Pattern'};

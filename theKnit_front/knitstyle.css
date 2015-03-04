@@ -1,0 +1,195 @@
+/* ---------------- CSS RESET ---------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 16px;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.25;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* General button style (reset) */
+.button {
+	/*border: none;*/
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	display: inline-block;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* ---------------- STYLES ---------------*/
+@font-face {
+	font-family:Monoxil;
+	src: url('fonts/Monoxil_Regular.otf') format('otf');
+}
+
+.wrapper{ 
+	margin: 0 auto;
+	max-width: 960px;
+	padding: 2%;
+}
+.content {
+	margin: 0 auto;
+	width: 80%;
+}
+body {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	color: #242424;
+}
+header {
+	padding-top: 1rem;
+}
+h1 {
+	font-family: Monoxil, monospace;
+	font-size: 10vw;
+	text-align: center;
+	color: #cc33ff;
+}
+h2 {
+	font-family: Monoxil, monospace;
+	font-size: 1.5rem;
+	text-align: left;
+	color: #9933ff;
+}
+a {
+	color: #242424;
+}
+a:hover {
+	color: #0066ff;
+}
+
+.new_project{
+	text-align: center;
+	padding: 1rem 1rem 2rem 1rem;
+}
+
+.feed {
+}
+
+.menu {
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 0 2rem 0;
+	float: left;
+}
+
+.feed_card {
+	float:left;
+	display:block;
+	width: 25%;
+	min-width: 16rem;
+	padding: 2rem 1rem 1rem 1rem;
+}
+
+.feed_card img {
+	width:100%;
+}
+
+.feed_pattern_name {
+	font-size: 1.25rem;
+	padding: .5rem 0 .25rem 0;
+}
+
+.feed_attribution {
+	color: #242424;
+}
+
+.button {
+	padding: 1.5rem 3rem;
+	margin: 1rem;
+	font-family: Monoxil, monospace;
+	font-size: 1.5rem;
+}
+
+.button1 {
+	border: none;
+	background-color: #cc33ff;
+	color: #ffffff;
+}
+
+.button1:hover {
+	background-color: #ff6666;
+	color: #ffffff;
+}
+
+.button2 {
+	background-color: #ffffff;
+	color: #cc33ff;
+	border: 3px solid #cc33ff;
+	width: 25rem;
+}
+
+.button2:hover {
+	background-color: #cc33ff;
+	color: #ffffff;
+}
+
+.instructions{
+	text-align: left;
+	padding: 0.5rem 0;
+}
+
+/* ---------------- Media Queries ---------------*/
+
+@media screen and (min-width: 800px){
+	h1{
+		font-size: 3.5rem;
+	}
+}
+@media screen and (max-width: 600px){
+	.content{
+		width:90%;
+	}
+
+	.button {
+		font-size: 1.25rem;
+		padding: 1.5rem 2rem;
+	}
+}
+
