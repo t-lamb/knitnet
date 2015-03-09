@@ -76,8 +76,7 @@ body {
 
 h1 {
 	font-family: Monoxil, monospace;
-	font-size: 10vw;
-	text-align: center;
+	font-size: 2.5rem;
 	color: #cc33ff;
 }
 
@@ -113,7 +112,7 @@ a:hover {
 }
 
 header {
-	padding-top: 1rem;
+	padding: 1rem;
 }
 
 .new_project{
@@ -185,17 +184,32 @@ header {
 
 .butts {
 text-align: center;
+padding-bottom: 2rem;
 }
 
+.yarn, .needle, .item{
+	float:left;
+	display:block;
+	width:100%;
+	padding: .5rem 0;
+}
+svg {
+	padding: .5rem 0;
+	fill: #9933ff;
+}
+svg:hover{
+	fill: #ff6666;
+}
 
 /* ---------------- Media Queries ---------------*/
 
 @media screen and (min-width: 800px){
-	h1{
-		font-size: 3.5rem;
-	}
+
 }
 @media screen and (max-width: 600px){
+	h1{
+		font-size: 2rem;
+	}
 	.project_content {
 		width: 90%;
 		margin: 0 auto;

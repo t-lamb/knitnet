@@ -3,13 +3,33 @@ var Schema = mongoose.Schema;
 
 // See http://mongoosejs.com/docs/schematypes.html
 
-var patternSchema = new Schema({
-	needleSize: String, // '5 millimeter'
-	yarnSize: String,
+var projectSchema = new Schema({
+	user: String, // name
+	photo: String, // url to the photo
 	color: String,
 	dateAdded : { type: Date, default: Date.now },
-	type: String
+	type: String,
+	pattern: {type:Schema.ObjectId, ref:'Pattern'}
 })
 
-// export 'Person' model so we can interact with it in other files
-module.exports = mongoose.model('Pattern',patternSchema);
+// 'Person' model
+var Project = mongoose.model('Project',projectSchema);
+
+var patternSchema = new Schema({
+	name: String,
+	type: String, // hat, scarf
+	photo: String,
+	needleSize: String, // '5 millimeter'
+	yarnSize: String,
+	description: String,
+	projects: [{type:Schema.ObjectId, ref:'Project'}]
+})
+
+// Pattern model
+var Pattern = mongoose.model('Pattern',patternSchema);
+
+// exports the models for use in other files
+module.exports = {
+	Pattern: Pattern,
+	Project: Project
+}

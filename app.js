@@ -18,9 +18,18 @@ var app = express();
 // server port number
 app.set('port', process.env.PORT || 5000);
 
+//  templates directory to 'views'
+app.set('views', __dirname + '/views');
+
+// setup template engine - we're using Hogan-Express
+app.set('view engine', 'html');
+app.set('layout','layout');
+app.engine('html', require('hogan-express')); // https://github.com/vol4ok/hogan-express
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // connecting to database
 app.db = mongoose.connect(process.env.MONGOLAB_URI);
@@ -58,8 +67,11 @@ var routes = require('./routes/index.js');
 // home route is not really an API route, but does respond back
 app.get('/', routes.index); // calls index function in /routes/index.js
 
+app.get('/create-pattern',routes.showPatternForm);
+app.post('/create-pattern',routes.savePatternForm);
+
 // API routes
-// app.post('/api/create', routes.create); // API create route and callback (see /routes/index.js)
+app.post('/api/create', routes.create); // API create route and callback (see /routes/index.js)
 app.get('/api/get/:id', routes.getOne); // API retrieve 1 route and callback (see /routes/index.js)
 app.get('/api/get', routes.getAll); // API retrieve all route and callback (see /routes/index.js)
 

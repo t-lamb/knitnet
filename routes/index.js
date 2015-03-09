@@ -5,11 +5,8 @@
  * Routes contains the functions (callbacks) associated with request urls.
  */
 
-// dependencies
-var geocoder = require('geocoder');
-
 // our db model
-var Pattern = require("../models/model.js");
+var Model = require("../models/model.js");
 
 /**
  * GET '/'
@@ -32,6 +29,55 @@ exports.index = function(req, res) {
 
 }
 
+exports.showPatternForm = function(req,res){
+
+	res.render('patter-form.html')
+}
+
+exports.savePatternForm = function(req,res){
+	console.log(req.body);
+
+	// pull out the name and location
+	var name = req.body.name;
+	var type = req.body.type;
+	var photo = req.body.photo;
+	var description = req.body.description;
+	var needleSize = req.body.needleSize;
+	var yarnSize = req.body.yarnSize;
+
+
+	 var pattern = Model.Pattern({
+		name: name,
+		type: type,
+		photo: photo,
+		description: description,	
+	  	needleSize: needleSize,
+	  	yarnSize: yarnSize,
+	  });
+
+	  // now, save that Pattern to the database
+		// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model-save	  
+	  pattern.save(function(err,data){
+	  	// if err saving, respond back with error
+	  	if (err){
+	  		var jsonData = {status:'ERROR', message: 'Error saving Pattern'};
+	  		return res.json(jsonData);
+	  	}
+
+	  	console.log('saved a new Pattern!');
+	  	console.log(data);
+
+	  	// now return the json data of the new Pattern
+	  	var jsonData = {
+	  		status: 'OK',
+	  		Pattern: data
+	  	}
+
+	  	return res.json(jsonData);
+
+	  })	
+}
+
 /**
  * POST '/api/create'
  * Receives a POST request of the new pattern, saves to db, responds back
@@ -42,16 +88,22 @@ exports.index = function(req, res) {
 exports.create = function(req,res){
 
 	console.log(req.body);
-
 	// pull out the name and location
+	var name = req.body.name;
+	var type = req.body.type;
+	var photo = req.body.photo;
+	var description = req.body.description;
 	var needleSize = req.body.needleSize;
 	var yarnSize = req.body.yarnSize;
-	var color = req.body.color;
 
-	 var pattern = Pattern({
+
+	 var pattern = Model.Pattern({
+		name: name,
+		type: type,
+		photo: photo,
+		description: description,	
 	  	needleSize: needleSize,
 	  	yarnSize: yarnSize,
-	  	color: color
 	  });
 
 	  // now, save that Pattern to the database
@@ -90,7 +142,7 @@ exports.getOne = function(req,res){
 	var requestedId = req.param('id');
 
 	// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.findById
-	Pattern.findById(requestedId, function(err,data){
+	Model.Pattern.findById(requestedId, function(err,data){
 
 		// if err or no user found, respond with error 
 		if(err || data == null){
@@ -118,7 +170,7 @@ exports.getOne = function(req,res){
 exports.getAll = function(req,res){
 
 	// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.find
-	Pattern.find(function(err, data){
+	Model.Pattern.find(function(err, data){
 		// if err or no users found, respond with error 
 		if(err || data == null){
   		var jsonData = {status:'ERROR', message: 'Could not find people'};
@@ -149,9 +201,8 @@ exports.getType = function(req,res){
 
 	var t = req.param('t');
 
-
 	// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.find
-	Pattern.find({type:t}, function(err, data){
+	Model.Pattern.find({type:t}, function(err, data){
 		// if err or no users found, respond with error 
 		if(err || data == null){
   		var jsonData = {status:'ERROR', message: 'Could not find people'};
@@ -215,7 +266,7 @@ exports.update = function(req,res){
 
 	  // now, update that Pattern
 		// mongoose method, see http://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate  
-	  Pattern.findByIdAndUpdate(requestedId, dataToUpdate, function(err,data){
+	  Model.Pattern.findByIdAndUpdate(requestedId, dataToUpdate, function(err,data){
 	  	// if err saving, respond back with error
 	  	if (err){
 	  		var jsonData = {status:'ERROR', message: 'Error updating Pattern'};
@@ -251,7 +302,7 @@ exports.remove = function(req,res){
 	var requestedId = req.param('id');
 
 	// Mongoose method, http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove
-	Pattern.findByIdAndRemove(requestedId,function(err, data){
+	Model.Pattern.findByIdAndRemove(requestedId,function(err, data){
 		if(err || data == null){
   		var jsonData = {status:'ERROR', message: 'Could not find that Pattern to delete'};
   		return res.json(jsonData);
