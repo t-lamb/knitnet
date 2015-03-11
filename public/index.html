@@ -1,0 +1,254 @@
+<html>
+<head>
+	<title>theKnit generator</title>
+	<link rel="stylesheet" type="text/css" href="knitstyle.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<script type="text/javascript" src="p5.js"></script>
+	<script type="text/javascript" src="knitscript.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+	<header>
+		<h1>the Knit gen</h1><div id="back"><a href="index.html">&#8619; Knit something else! &#8619;</a></div>
+	</header>
+	
+	<div id="p5can">
+	</div>
+
+	<div id="content" class="content">
+		
+		<p class="instructions">// To make a pattern, choose your implements.</p>
+
+				<div class="menu">
+			<h2>What are you making?</h2>
+			<ul id="item_list">
+				<li class="item">
+					<svg version="1.1" id="i0" x="0px" y="0px" width="100px" viewBox="0 0 100 120">
+					<g transform="scale(1 1)">
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">scarf</p><!--scarf-->
+				</li>
+				<li class="item">
+					<svg version="1.1" id="i1" x="0px" y="0px" width="100px" viewBox="0 0 100 120">
+					<g transform="scale(1 1)" >
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">hat</p><!--hat-->
+				</li>
+				
+			</ul>
+		</div><!--close item menu-->
+
+		<div class="menu">
+			<h2>Do you have yarn?</h2>
+			<ul id="yarn_list">
+				<li class="yarn">
+					<svg version="1.1" id="y2" x="0px" y="0px" width="5px" viewBox="0 0 5 150">
+					<g transform="scale(.05 1)">
+						<polygon points="0,150 100,150 100,106.9 0,136.8 	"/>
+						<polygon points="0,110.2 100,80.3 100,62.1 0,92 	"/>
+						<polygon points="0,132.6 100,102.7 100,84.5 0,114.4 	"/>
+						<polygon points="100,0 0,0 0,43.1 100,13.2 	"/>
+						<polygon points="0,69.7 0,87.9 100,58 100,39.8 	"/>
+						<polygon points="100,17.4 0,47.3 0,65.5 100,35.6 	"/>
+					</g>
+					</svg>
+					<p class="label">Lace<br/>2ply</p><!--5px-->
+				</li>
+				<li class="yarn">
+					<svg version="1.1" id="y4" x="0px" y="0px" width="9px" viewBox="0 0 9 150">
+					<g transform="scale(.09 1)">
+						<polygon points="0,150 100,150 100,106.9 0,136.8 	"/>
+						<polygon points="0,110.2 100,80.3 100,62.1 0,92 	"/>
+						<polygon points="0,132.6 100,102.7 100,84.5 0,114.4 	"/>
+						<polygon points="100,0 0,0 0,43.1 100,13.2 	"/>
+						<polygon points="0,69.7 0,87.9 100,58 100,39.8 	"/>
+						<polygon points="100,17.4 0,47.3 0,65.5 100,35.6 	"/>
+					</g>
+					</svg>
+					<p class="label">Fingering<br/>4ply</p><!--9px-->
+				</li>
+				<li class="yarn">
+					<svg version="1.1" id="y5" x="0px" y="0px" width="12px" viewBox="0 0 12 150">
+					<g transform="scale(.12 1)">
+						<polygon points="0,150 100,150 100,106.9 0,136.8 	"/>
+						<polygon points="0,110.2 100,80.3 100,62.1 0,92 	"/>
+						<polygon points="0,132.6 100,102.7 100,84.5 0,114.4 	"/>
+						<polygon points="100,0 0,0 0,43.1 100,13.2 	"/>
+						<polygon points="0,69.7 0,87.9 100,58 100,39.8 	"/>
+						<polygon points="100,17.4 0,47.3 0,65.5 100,35.6 	"/>
+					</g>
+					</svg>
+					<p class="label">Sport<br/>5ply</p><!--12px-->
+				</li>
+				<li class="yarn">
+					<svg version="1.1" id="y8" x="0px" y="0px" width="18px" viewBox="0 0 18 150">
+					<g transform="scale(.18 1)">
+						<polygon points="0,150 100,150 100,106.9 0,136.8 	"/>
+						<polygon points="0,110.2 100,80.3 100,62.1 0,92 	"/>
+						<polygon points="0,132.6 100,102.7 100,84.5 0,114.4 	"/>
+						<polygon points="100,0 0,0 0,43.1 100,13.2 	"/>
+						<polygon points="0,69.7 0,87.9 100,58 100,39.8 	"/>
+						<polygon points="100,17.4 0,47.3 0,65.5 100,35.6 	"/>
+					</g>
+					</svg>
+					<p class="label">DK<br/>8ply</p><!--18px-->
+				</li>
+				<li class="yarn">
+					<svg version="1.1" id="y10" x="0px" y="0px" width="24px" viewBox="0 0 24 150">
+					<g transform="scale(.24 1)">
+						<polygon points="0,150 100,150 100,106.9 0,136.8 	"/>
+						<polygon points="0,110.2 100,80.3 100,62.1 0,92 	"/>
+						<polygon points="0,132.6 100,102.7 100,84.5 0,114.4 	"/>
+						<polygon points="100,0 0,0 0,43.1 100,13.2 	"/>
+						<polygon points="0,69.7 0,87.9 100,58 100,39.8 	"/>
+						<polygon points="100,17.4 0,47.3 0,65.5 100,35.6 	"/>
+					</g>
+					</svg>
+					<p class="label">Worsted<br/>10ply</p><!--24px-->
+				</li>
+				<li class="yarn">
+					<svg version="1.1" id="y12" x="0px" y="0px" width="28px" viewBox="0 0 28 150">
+					<g transform="scale(.28 1)">
+						<polygon points="0,150 100,150 100,106.9 0,136.8 	"/>
+						<polygon points="0,110.2 100,80.3 100,62.1 0,92 	"/>
+						<polygon points="0,132.6 100,102.7 100,84.5 0,114.4 	"/>
+						<polygon points="100,0 0,0 0,43.1 100,13.2 	"/>
+						<polygon points="0,69.7 0,87.9 100,58 100,39.8 	"/>
+						<polygon points="100,17.4 0,47.3 0,65.5 100,35.6 	"/>
+					</g>
+					</svg>
+					<p class="label">Bulky<br/>12ply</p><!--28px-->
+				</li>
+			</ul>
+		</div><!--close yarn menu-->
+
+		<div class="menu">
+			<h2>Do you have needles?</h2>
+			<ul id="needle_list">
+				<li class="needle">
+					<svg version="1.1" id="n0" x="0px" y="0px" width="8px" viewBox="0 0 8 150">
+					<g transform="scale(.08 1)">
+						<path d="M50,150c18.7,0,50-30,50-30H0C0,120,31.2,150,50,150z"/>
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">0<br/>2mm</p><!--8px-->
+				</li>
+				<li class="needle">
+					<svg version="1.1" id="n3" x="0px" y="0px" width="13px" viewBox="0 0 13 150">
+					<g transform="scale(.13 1)" >
+						<path d="M50,150c18.7,0,50-30,50-30H0C0,120,31.2,150,50,150z"/>
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">3<br/>3.25mm</p><!--13px-->
+				</li>
+				<li class="needle">
+					<svg version="1.1" id="n6" x="0px" y="0px" width="17px" viewBox="0 0 17 150">
+					<g transform="scale(.17 1)" >
+						<path d="M50,150c18.7,0,50-30,50-30H0C0,120,31.2,150,50,150z"/>
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">6<br/>4mm</p><!--17px-->
+				</li>
+				<li class="needle">
+					<svg version="1.1" id="n9" x="0px" y="0px" width="23px" viewBox="0 0 23 150">
+					<g transform="scale(.23 1)" >
+						<path d="M50,150c18.7,0,50-30,50-30H0C0,120,31.2,150,50,150z"/>
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">9<br/>5.5mm</p><!--23px-->
+				</li>
+				<li class="needle">
+					<svg version="1.1" id="n13" x="0px" y="0px" width="37px" viewBox="0 0 37 150">
+					<g transform="scale(.37 1)" >
+						<path d="M50,150c18.7,0,50-30,50-30H0C0,120,31.2,150,50,150z"/>
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">13<br/>9mm</p><!--37px-->
+				</li>
+				<li class="needle">
+					<svg version="1.1" id="n17" x="0px" y="0px" width="51px" viewBox="0 0 51 150">
+					<g transform="scale(.51 1)" >
+						<path d="M50,150c18.7,0,50-30,50-30H0C0,120,31.2,150,50,150z"/>
+						<rect width="100" height="120"/>
+					</g>
+					</svg>
+					<p class="label">17<br/>12mm</p><!--51px-->
+				</li>
+			</ul>
+		</div><!--close needle menu-->
+		
+
+
+		<div class="menu">
+			<h2>YarnColors&#91;&#93; = &#123;</h2>
+			<ul id="color_list">
+				<li class="color">
+					<svg version="1.1" id="blue" x="0px" y="0px" viewBox="0 0 150 150">
+						<rect width="150" height="150" fill="#33ccff"/>
+					</svg>
+				</li>
+				<li class="color">
+					<svg version="1.1" id="green" x="0px" y="0px" viewBox="0 0 150 150">
+						<rect width="150" height="150" fill="#66dd66"/>
+					</svg>
+				</li>
+
+				<li class="color">
+					<svg version="1.1" id="yellow" x="0px" y="0px" viewBox="0 0 150 150">
+						<rect width="150" height="150" fill="#e9fca3"/>
+					</svg>
+				</li>
+				<li class="color">
+					<svg version="1.1" id="red" x="0px" y="0px" viewBox="0 0 150 150">
+						<rect width="150" height="150" fill="#ff6666"/>
+					</svg>
+				</li>
+				<li class="color">
+					<svg version="1.1" id="purple" x="0px" y="0px" viewBox="0 0 150 150">
+						<rect width="150" height="150" fill="#cc33ff"/>
+					</svg>
+				</li>
+				<li class="color">
+					<svg version="1.1" id="black" x="0px" y="0px" viewBox="0 0 150 150">
+						<rect width="150" height="150" fill="#444444"/>
+					</svg>
+				</li>
+
+
+			</ul>
+			<h2>&#125;</h2>
+		</div><!--close yarn menu-->
+		
+		<p class="instructions">
+			//To make a pattern, you can encrypt a secret message
+		</p>
+
+		<div class="menu">
+			<h2>
+				Your message:
+			</h2>
+				<div class="cursor" id="cursor"> </div>
+				<input type="text" value=" " id="input">
+		</div><!--close string-->
+
+		<a href="#" id="button">Knit Something!</a>
+
+	</div><!--close content-->
+
+
+</div><!--close wrapper-->
+
+</body>
+</html>

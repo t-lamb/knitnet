@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var express = require('express');
-var http = require('http');
+var express = require('express'); //server framework
+var http = require('http'); 
 var path = require('path');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -18,7 +18,7 @@ var app = express();
 // server port number
 app.set('port', process.env.PORT || 5000);
 
-//  templates directory to 'views'
+// templates directory to 'views'
 app.set('views', __dirname + '/views');
 
 // setup template engine - we're using Hogan-Express
