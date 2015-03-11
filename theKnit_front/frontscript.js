@@ -1,15 +1,6 @@
 function init() {
 
-	// var startButton = document.getElementById("start_project").addEventListener("click", startProject);
-	// var viewA = document.getElementById("viewA");
-	// var viewB = document.getElementById("viewB");
-
-	// function startProject(){
-	// 	var sty = getComputedStyle(viewB).display;
-	// 	console.log(sty);
-	// };
-
-	//BUTTON
+	//START A NEW PROJECT
 
 	//clicking button switches to viewB
 	var startButton = document.getElementById('start_project').addEventListener('click', function(e){
@@ -25,7 +16,7 @@ function init() {
 		var div = document.getElementById(id);
 		var sty = getComputedStyle(div);
 		if (sty.display == 'none'){
-			div.style.display = 'block';
+			div.style.display = 'inline-block';
 		} else {
 			div.style.display = 'none';
 		}	

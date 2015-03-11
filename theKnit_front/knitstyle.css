@@ -55,7 +55,6 @@ button {
 	color: inherit;
 	background: none;
 	cursor: pointer;
-	display: block;
 	outline: none;
 	position: relative;
 	text-align: center;
@@ -108,7 +107,7 @@ a:hover {
 /* ---------------- LAYOUT ---------------*/
 .wrapper{ 
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 64rem;
 	padding: 2%;
 }
 
@@ -119,7 +118,7 @@ header {
 .new_project{
 	padding: 1rem 1rem 2rem 1rem;
 	margin: 0 auto;
-	width: 90%;
+	width: 95%;
 }
 
 #viewB{
@@ -134,9 +133,8 @@ header {
 .feed_card {
 	float: left;
 	display: block;
-	width: 25%;
-	min-width: 16rem;
-	padding: 2rem 1rem 1rem 1rem;
+	width: 22%;
+	padding: 1rem 1.5%;
 }
 
 .feed_card img {
@@ -159,7 +157,7 @@ header {
 
 button {
 	padding: 1.5rem 3rem;
-	margin: 1rem auto;
+	margin: 0 auto;
 	font-family: Monoxil, monospace;
 	font-size: 1.5rem;
 }
@@ -168,6 +166,7 @@ button {
 	border: none;
 	background-color: #cc33ff;
 	color: #ffffff;
+	display: block;
 }
 
 .button1:hover {
@@ -179,7 +178,7 @@ button {
 	background-color: #ffffff;
 	color: #cc33ff;
 	border: 3px solid #cc33ff;
-	/*width: 25rem;*/
+	margin: 1rem .5rem;
 }
 
 .button2:hover {
@@ -198,17 +197,30 @@ padding-bottom: 2rem;
 	width:100%;
 	padding: .5rem 0;
 }
+
 svg {
 	padding: .5rem 0;
 	fill: #9933ff;
 }
+
 svg:hover{
 	fill: #ff6666;
 }
 
 /* ---------------- Media Queries ---------------*/
 
-@media screen and (min-width: 800px){
+@media screen and (max-width: 966px){
+	.feed_card {
+		width: 30%;
+		padding: 1rem 1.5%;
+	}
+
+}
+@media screen and (max-width: 720px){
+	.feed_card {
+		width: 46%;
+		padding: 1rem 2%;
+	}
 
 }
 @media screen and (max-width: 600px){
@@ -225,6 +237,10 @@ svg:hover{
 	}
 	.button2 {
 		width:90%;
+	}
+	.feed_card {
+		width: 90%;
+		padding: 1rem 0;
 	}
 }
 
