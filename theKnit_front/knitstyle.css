@@ -179,6 +179,7 @@ button {
 	color: #cc33ff;
 	border: 3px solid #cc33ff;
 	margin: 1rem .5rem;
+	display: inline-block;
 }
 
 .button2:hover {
@@ -186,9 +187,15 @@ button {
 	color: #ffffff;
 }
 
-.butts {
-text-align: center;
-padding-bottom: 2rem;
+.button3 {
+	border: 3px solid #33ccff;
+	color: #33ccff;
+	background-color: #ffffff;
+	display: block;
+}
+.button3:hover {
+	background-color: #33ccff;
+	color: #ffffff;
 }
 
 .yarn, .needle, .item{
@@ -205,6 +212,16 @@ svg {
 
 svg:hover{
 	fill: #ff6666;
+}
+
+.selected {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1rem 2rem 2rem 2rem;
+}
+
+.svg_box{
+	padding: 2.2rem 0 2.4rem 0;
 }
 
 /* ---------------- Media Queries ---------------*/
@@ -241,6 +258,9 @@ svg:hover{
 	.feed_card {
 		width: 90%;
 		padding: 1rem 0;
+	}
+	.svg_box {
+		padding: .5rem 0;
 	}
 }
 
