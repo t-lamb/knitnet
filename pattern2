@@ -1,0 +1,22 @@
+{
+	name: "Easy Mistake Stitch Scarf",
+	source: "The Purl Bee",
+	sourceUrl: "http://www.purlbee.com/2008/12/02/easy-mistake-stitch-scarf/",
+	type: "scarf",
+	needles: [
+		{
+			needleSize: "8 millimeter",
+			needleType: "straight",
+		}
+	]
+	yarnWeight: "Bulky",
+	description: [
+		{
+			"Cast on 39 stitches.",
+		 	"K2, p2, repeat to last 3 stitches, k2, p1",
+		 	"Bind off in stitch pattern.",
+		 	"Sew in ends, wash gently by hand, block and let air dry."
+
+		}
+	]
+}

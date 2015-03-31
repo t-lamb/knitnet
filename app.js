@@ -32,7 +32,12 @@ app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // connecting to database
-app.db = mongoose.connect(process.env.MONGOLAB_URI);
+var mongoLabUri = 'mongodb://heroku_app34450359:600eqomg4793p08kqqi9fnt735@ds049631.mongolab.com:49631/heroku_app34450359';
+if (process.env.MONGOLAB_URI) {
+  app.db = mongoose.connect(process.env.MONGOLAB_URI);
+} else {
+  app.db = mongoose.connect(mongoLabUri);
+}
 console.log("connected to database");
 
 /**

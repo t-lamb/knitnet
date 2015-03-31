@@ -31,7 +31,7 @@ exports.index = function(req, res) {
 
 exports.showPatternForm = function(req,res){
 
-	res.render('patter-form.html')
+	res.render('pattern-form.html')
 }
 
 exports.savePatternForm = function(req,res){

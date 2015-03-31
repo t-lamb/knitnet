@@ -1,10 +1,30 @@
-<form action="/create-pattern" method="POST">
-<input list="browsers">
-<datalist id="browsers">
-  <option value="Internet Explorer">
-  <option value="Firefox">
-  <option value="Chrome">
-  <option value="Opera">
-  <option value="Safari">
-</datalist> 
-</form>
+		<form method="POST" action="/create-pattern">
+			<ul>
+				<li>
+					Pattern Name:
+					<input type="text" name="name">
+				</li>
+				<li>
+					Source:
+					<input type="text" name="source">
+				</li>
+				<li>
+					Source URL:
+					<input type="text" name="sourceUrl">
+				</li>
+				<li>
+					Needle Size:
+					<input type="text" name="needleSize">
+				</li>
+				<li>
+					Yarn Weight:
+					<input type="text" name="yarnWeight">
+				</li>
+				<li>
+					Pattern Instructions:
+					<input type="text" name="description">
+				</li>
+			</ul>
+
+			<input type="submit" value="Submit" class="button">
+		</form>
