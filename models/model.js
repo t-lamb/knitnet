@@ -16,9 +16,16 @@ var Project = mongoose.model('Project',projectSchema);
 
 var patternSchema = new Schema({
 	name: String,
+	source: String,
+	sourceURL: String,
 	type: String, // hat, scarf
-	needleSize: String, // '5 millimeter'
-	yarnSize: String,
+	needles: [{ 
+		type: String, 
+		size: String // '5 millimeter' 
+	}],
+	yarns: [{
+		weight: String
+	}],
 	description: String,
 	projects: [{type:Schema.ObjectId, ref:'Project'}]
 })

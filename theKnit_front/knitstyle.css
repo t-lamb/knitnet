@@ -162,6 +162,13 @@ button {
 	font-size: 1.5rem;
 }
 
+.button {
+	padding: 1.5rem 3rem;
+	margin: 1rem;
+	font-family: Monoxil, monospace;
+	font-size: 1.5rem;
+}
+
 .button1 {
 	border: none;
 	background-color: #cc33ff;
@@ -210,7 +217,7 @@ svg {
 	fill: #9933ff;
 }
 
-svg:hover{
+svg:hover {
 	fill: #ff6666;
 }
 
@@ -220,8 +227,16 @@ svg:hover{
 	padding: 1rem 2rem 2rem 2rem;
 }
 
-.svg_box{
+.svg_box {
 	padding: 2.2rem 0 2.4rem 0;
+}
+
+form li {
+	padding: 0 1rem 1rem;
+}
+
+textarea {
+	margin: 1rem 0 0;
 }
 
 /* ---------------- Media Queries ---------------*/

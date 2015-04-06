@@ -24,7 +24,7 @@
 					<input type="text" name="name">
 				</li>
 				<li>
-					Source:
+					Author or Source Name:
 					<input type="text" name="source">
 				</li>
 				<li>
@@ -32,20 +32,40 @@
 					<input type="text" name="sourceUrl">
 				</li>
 				<li>
+					Type of Item:
+					<input type="text" name="type">
+				</li>
+				<li>
 					Needle Size:
-					<input type="text" name="needleSize">
+					<select name="needleSize">
+						<option value="US5/3.75mm">US 5 / 3.75mm</option>
+						<option value="US6/4mm">US 6 / 4mm</option>
+						<option value="US7/4.5mm">US 7 / 4.5mm</option>
+						<option value="US8/5mm">US 8 / 5mm</option>	
+						<option value="US9/5.5mm">US 9 / 5.5mm</option>	
+						<option value="US10/6mm">US 10 / 6mm</option>
+						<option value="US11/8mm">US 11 / 8mm</option>
+						<option value="US13/9mm">US 13 / 9mm</option>	
+					</select>
 				</li>
 				<li>
 					Yarn Weight:
-					<input type="text" name="yarnWeight">
+					<select name="needleSize">
+						<option value="2ply">Lace / 2ply</option>
+						<option value="4ply">Fingering / 4ply</option>
+						<option value="5ply">Sport / 5ply</option>
+						<option value="8ply">DK / 8ply</option>	
+						<option value="10ply">Worsted / 10ply</option>	
+						<option value="12ply">Bulky / 12ply</option>	
+					</select>
 				</li>
 				<li>
-					Pattern Instructions:
-					<input type="text" name="description">
+					Pattern Instructions:<br>
+					<textarea rows="12" cols="100"></textarea>
 				</li>
 			</ul>
 
-			<input type="submit" value="Submit" class="button">
+			<a href="success.html"><input type="submit" value="Submit" class="button button1"></a>
 		</form>
 	</div><!--close New Project-->
 

@@ -5,7 +5,7 @@
  * Routes contains the functions (callbacks) associated with request urls.
  */
 
-// our db model
+// location of db model
 var Model = require("../models/model.js");
 
 /**
@@ -37,22 +37,49 @@ exports.showPatternForm = function(req,res){
 exports.savePatternForm = function(req,res){
 	console.log(req.body);
 
-	// pull out the name and location
+	// pull out pattern info
 	var name = req.body.name;
-	var type = req.body.type;
 	var photo = req.body.photo;
-	var description = req.body.description;
+	var source = req.body.source;
+	var sourceUrl = req.body.sourceUrl;
+	var type = req.body.type;
 	var needleSize = req.body.needleSize;
 	var yarnSize = req.body.yarnSize;
+	var steps = req.body.steps;
 
+	var pattern = {
+		yarns: [{
+			size: yarnSize,
+			type: type
+		}]
+	};
+
+	var patternData = {
+		name: name,
+		source: source,
+		sourceUrl: 
+		type: "hat",
+		needles: [
+			{
+				size: "5 millimeter",
+				type: "circular",
+			},
+			{
+				size: "5 millimeter",
+				type: "double-pointed",
+			}
+		]
+	};
 
 	 var pattern = Model.Pattern({
 		name: name,
-		type: type,
 		photo: photo,
-		description: description,	
+		source: source,
+		sourceUrl: sourceUrl,
+		type: type,	
 	  	needleSize: needleSize,
 	  	yarnSize: yarnSize,
+	  	steps: steps
 	  });
 
 	  // now, save that Pattern to the database
